@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro da Santa Ceia</title>
+  <!-- Bootstrap para um design responsivo e elegante -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Estilos customizados -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container my-4 text-center">
+    <h1>Registro da Santa Ceia</h1>
+    <div class="col-md-8 mx-auto">
+      <form id="registroForm" class="my-3">
+        <!-- Linha 1: Data/Horário -->
+        <div class="row mb-3">
+          <div class="col-3">
+            <label for="dataHoraEvento" class="form-label">Data e Horário</label>
+            <input type="datetime-local" id="dataHoraEvento" class="form-control form-control-sm" required>
+          </div>
+          <!-- Linha 2: Livro, Capítulo e Versículo (lado a lado) -->
+          <div class="col-3">
+            <label for="livro" class="form-label">Livro</label>
+            <select id="livro" class="form-control form-control-sm" required>
+              <option value="">Selecione</option>
+              <!-- Lista dos livros da Bíblia (João Ferreira de Almeida, Revista e Corrigida) -->
+              <option value="Gênesis">Gênesis</option>
+              <option value="Êxodo">Êxodo</option>
+              <option value="Levítico">Levítico</option>
+              <option value="Números">Números</option>
+              <option value="Deuteronômio">Deuteronômio</option>
+              <option value="Josué">Josué</option>
+              <option value="Juízes">Juízes</option>
+              <option value="Rute">Rute</option>
+              <option value="1 Samuel">1 Samuel</option>
+              <option value="2 Samuel">2 Samuel</option>
+              <option value="1 Reis">1 Reis</option>
+              <option value="2 Reis">2 Reis</option>
+              <option value="1 Crônicas">1 Crônicas</option>
+              <option value="2 Crônicas">2 Crônicas</option>
+              <option value="Esdras">Esdras</option>
+              <option value="Neemias">Neemias</option>
+              <option value="Ester">Ester</option>
+              <option value="Jó">Jó</option>
+              <option value="Salmos">Salmos</option>
+              <option value="Provérbios">Provérbios</option>
+              <option value="Eclesiastes">Eclesiastes</option>
+              <option value="Cânticos">Cânticos</option>
+              <option value="Isaías">Isaías</option>
+              <option value="Jeremias">Jeremias</option>
+              <option value="Lamentações">Lamentações</option>
+              <option value="Ezequiel">Ezequiel</option>
+              <option value="Daniel">Daniel</option>
+              <option value="Oséias">Oséias</option>
+              <option value="Joel">Joel</option>
+              <option value="Amós">Amós</option>
+              <option value="Obadias">Obadias</option>
+              <option value="Jonas">Jonas</option>
+              <option value="Miquéias">Miquéias</option>
+              <option value="Naum">Naum</option>
+              <option value="Habacuque">Habacuque</option>
+              <option value="Sofonias">Sofonias</option>
+              <option value="Ageu">Ageu</option>
+              <option value="Zacarias">Zacarias</option>
+              <option value="Malaquias">Malaquias</option>
+              <option value="Mateus">Mateus</option>
+              <option value="Marcos">Marcos</option>
+              <option value="Lucas">Lucas</option>
+              <option value="João">João</option>
+              <option value="Atos dos Apóstolos">Atos dos Apóstolos</option>
+              <option value="Romanos">Romanos</option>
+              <option value="1 Coríntios">1 Coríntios</option>
+              <option value="2 Coríntios">2 Coríntios</option>
+              <option value="Gálatas">Gálatas</option>
+              <option value="Efésios">Efésios</option>
+              <option value="Filipenses">Filipenses</option>
+              <option value="Colossenses">Colossenses</option>
+              <option value="1 Tessalonicenses">1 Tessalonicenses</option>
+              <option value="2 Tessalonicenses">2 Tessalonicenses</option>
+              <option value="1 Timóteo">1 Timóteo</option>
+              <option value="2 Timóteo">2 Timóteo</option>
+              <option value="Tito">Tito</option>
+              <option value="Filemom">Filemom</option>
+              <option value="Hebreus">Hebreus</option>
+              <option value="Tiago">Tiago</option>
+              <option value="1 Pedro">1 Pedro</option>
+              <option value="2 Pedro">2 Pedro</option>
+              <option value="1 João">1 João</option>
+              <option value="2 João">2 João</option>
+              <option value="3 João">3 João</option>
+              <option value="Judas">Judas</option>
+              <option value="Apocalipse">Apocalipse</option>
+            </select>
+          </div>
+          <div class="col-2">
+            <label for="capitulo" class="form-label">Capítulo</label>
+            <input type="number" id="capitulo" class="form-control form-control-sm" required>
+          </div>
+          <div class="col-2">
+            <label for="versiculo" class="form-label">Versículo</label>
+            <input type="text" id="versiculo" class="form-control form-control-sm" placeholder="ex: 1-25" required>
+          </div>
+        </div>
+        <!-- Demais campos -->
+        <div class="mb-3">
+          <label for="anciaoResponsavel" class="form-label">Ancião Responsável</label>
+          <input type="text" id="anciaoResponsavel" class="form-control form-control-sm" required>
+        </div>
+        <div class="mb-3">
+          <label for="cidade" class="form-label">Cidade</label>
+          <input type="text" id="cidade" class="form-control form-control-sm" required>
+        </div>
+        <div class="mb-3">
+          <label for="casaOracao" class="form-label">Casa de Oração</label>
+          <input type="text" id="casaOracao" class="form-control form-control-sm" required>
+        </div>
+        <!-- Contadores -->
+        <div class="mb-3">
+          <label class="form-label">Contador de Irmão:</label>
+          <div class="counter-group justify-content-center">
+            <button type="button" class="btn btn-secondary" id="irmaoDecrement">-</button>
+            <span id="irmaoCount">0</span>
+            <button type="button" class="btn btn-secondary" id="irmaoIncrement">+</button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Contador de Irmã:</label>
+          <div class="counter-group justify-content-center">
+            <button type="button" class="btn btn-secondary" id="irmaDecrement">-</button>
+            <span id="irmaCount">0</span>
+            <button type="button" class="btn btn-secondary" id="irmaIncrement">+</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar Santa Ceia</button>
+      </form>
+      <a href="historico.html" class="btn btn-primary">Histórico</a>
+      <a href="folha-resumo.html" class="btn btn-primary">Folha Resumo</a>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

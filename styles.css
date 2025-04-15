@@ -1,0 +1,45 @@
+/* Estilos customizados */
+
+/* Estilo para os contadores */
+.counter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .counter-group span {
+    font-size: 1.5rem;
+    min-width: 40px;
+    text-align: center;
+  }
+  
+  /* Reduz a fonte da tabela de histórico */
+  .table td,
+  .table th {
+    font-size: 0.85rem;
+  }
+  
+  /* Estilos para o relatório PDF */
+  #pdfReport {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  /* Caso precise de ajustes adicionais para impressão na Folha Resumo, você pode utilizar regras @media print */
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+    #folhaContainer, #folhaContainer * {
+      visibility: visible;
+    }
+    #folhaContainer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 70mm;
+      height: 100mm;
+    }
+  }
+  

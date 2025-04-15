@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico de Santa Ceia</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container my-4 text-center">
+    <h1>Histórico de Santa Ceia</h1>
+    <div class="col-md-10 mx-auto">
+      <div class="mb-3">
+        <label for="filtroData" class="form-label">Filtrar por Data:</label>
+        <input type="date" id="filtroData" class="form-control form-control-sm" style="max-width: 200px; margin: 0 auto;">
+      </div>
+      <table class="table table-striped" id="relatorioTable">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Livro</th>
+            <th>Capítulo</th>
+            <th>Versículo</th>
+            <th>Ancião</th>
+            <th>Cidade</th>
+            <th>Casa de Oração</th>
+            <th>Irmão</th>
+            <th>Irmã</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Registros serão inseridos via JavaScript -->
+        </tbody>
+      </table>
+      <button id="gerarPdfBtn" class="btn btn-secondary mt-2">Gerar Relatório PDF</button>
+      <a href="index.html" class="btn btn-primary mt-2">Voltar</a>
+      <a href="folha-resumo.html" class="btn btn-primary mt-2">Folha Resumo</a>
+    </div>
+  </div>
+
+  <!-- Modal para Edição -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="editForm">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Editar Registro</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="editId">
+            <div class="mb-3">
+              <label for="editDataHora" class="form-label">Data e Horário</label>
+              <input type="datetime-local" id="editDataHora" class="form-control form-control-sm" required>
+            </div>
+            <div class="mb-3">
+              <label for="editLivro" class="form-label">Livro</label>
+              <select id="editLivro" class="form-control form-control-sm" required>
+                <option value="">Selecione</option>
+                <!-- (Mesma lista de livros que no registro) -->
+                <option value="Gênesis">Gênesis</option>
+                <option value="Êxodo">Êxodo</option>
+                <!-- ... demais livros ... -->
+                <option value="Apocalipse">Apocalipse</option>
+              </select>
+            </div>
+            <div class="row mb-3">
+              <div class="col-6">
+                <label for="editCapitulo" class="form-label">Capítulo</label>
+                <input type="number" id="editCapitulo" class="form-control form-control-sm" required>
+              </div>
+              <div class="col-6">
+                <label for="editVersiculo" class="form-label">Versículo</label>
+                <input type="text" id="editVersiculo" class="form-control form-control-sm" placeholder="ex: 1-25" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="editAnciaoResponsavel" class="form-label">Ancião Responsável</label>
+              <input type="text" id="editAnciaoResponsavel" class="form-control form-control-sm" required>
+            </div>
+            <div class="mb-3">
+              <label for="editCidade" class="form-label">Cidade</label>
+              <input type="text" id="editCidade" class="form-control form-control-sm" required>
+            </div>
+            <div class="mb-3">
+              <label for="editCasaOracao" class="form-label">Casa de Oração</label>
+              <input type="text" id="editCasaOracao" class="form-control form-control-sm" required>
+            </div>
+            <!-- Contadores -->
+            <div class="mb-3">
+              <label class="form-label">Contador de Irmão:</label>
+              <div class="counter-group justify-content-center">
+                <button type="button" class="btn btn-secondary" id="editIrmaoDecrement">-</button>
+                <span id="editIrmaoCount">0</span>
+                <button type="button" class="btn btn-secondary" id="editIrmaoIncrement">+</button>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Contador de Irmã:</label>
+              <div class="counter-group justify-content-center">
+                <button type="button" class="btn btn-secondary" id="editIrmaDecrement">-</button>
+                <span id="editIrmaCount">0</span>
+                <button type="button" class="btn btn-secondary" id="editIrmaIncrement">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Div oculta para o relatório PDF -->
+  <div id="pdfReport" style="display: none;"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="historico.js"></script>
+</body>
+</html>
